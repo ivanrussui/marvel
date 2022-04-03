@@ -5,7 +5,7 @@ import MarvelService from './services/MarvelService';
 import './style/style.scss';
 
 // создание экземпляра класса
-const marvelService = new MarvelService();
+// const marvelService = new MarvelService();
 
 // получить всех персонажей
 // marvelService.getAllCharacters().then(res => console.log(res));
@@ -14,8 +14,8 @@ const marvelService = new MarvelService();
 // marvelService.getAllCharacters().then(res => console.log(res.data.results));
 
 // получить всех персонажей, далее именно name у этих персонажей
-marvelService.getAllCharacters().then(
-	res => res.data.results.forEach(item => console.log(item.name)));
+// marvelService.getAllCharacters().then(
+// 	res => res.data.results.forEach(item => console.log(item.name)));
 
 
 // получить персонажа по id статически
