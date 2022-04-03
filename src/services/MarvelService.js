@@ -21,19 +21,19 @@ class MarvelService {
     );
   };
 
-	// метод с пауком по id
-  getCharacter = () => {
-    return this.getResource(
-			`${this._apiBase}characters/1009610?${this._apiKey}`
-    );
-  };
-
-	// метод с динамическим id
-  // getCharacter = (id) => {
+	// метод получения персонажа по id статически 
+  // getCharacter = () => {
   //   return this.getResource(
-	// 		`${this._apiBase}characters/${id}?${this._apiKey}`
+	// 		`${this._apiBase}characters/1009610?${this._apiKey}`
   //   );
   // };
+
+	// метод получения персонажа по id динамически 
+  getCharacter = (id) => {
+    return this.getResource(
+			`${this._apiBase}characters/${id}?${this._apiKey}`
+    );
+  };
 }
 
 export default MarvelService;

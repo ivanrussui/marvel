@@ -4,6 +4,7 @@ import App from './components/app/App';
 import MarvelService from './services/MarvelService';
 import './style/style.scss';
 
+// создание экземпляра класса
 const marvelService = new MarvelService();
 
 // получить всех персонажей
@@ -16,11 +17,11 @@ const marvelService = new MarvelService();
 marvelService.getAllCharacters().then(
 	res => res.data.results.forEach(item => console.log(item.name)));
 
-	
-// получить по id статически
+
+// получить персонажа по id статически
 // marvelService.getCharacter().then(res => console.log(res));
 
-// получить по id динамически
+// получить персонажа по id динамически
 // marvelService.getCharacter(1009610).then(res => console.log(res));
 
 ReactDOM.render(
