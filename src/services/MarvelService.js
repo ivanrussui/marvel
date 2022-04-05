@@ -19,10 +19,6 @@ class MarvelService {
 		return res.data.results.map(this._transformCharacter);
   };
 
-	// метод получения персонажа по id статически 
-  // getCharacter = () => {return this.getResource(`${this._apiBase}characters/1009610?${this._apiKey}`);
-  // };
-
 	// метод получения персонажа по id динамически 
   getCharacter = async (id) => {
     const res = await this.getResource(`${this._apiBase}characters/${id}?${this._apiKey}`);
