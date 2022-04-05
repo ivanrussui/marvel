@@ -6,36 +6,35 @@ import mjolnir from '../../resources/img/mjolnir.png';
 class RandomChar extends Component {
 	constructor(props) {
 		super(props);
-		this.updateChar();
+		this.updateChar(); // вызываем метод обновления перс-а 
 	}
 
 	// стейт с данными
 	state = {
-		name: null,
-		description: null,
-		thumbnail: null,
-		homepage: null,
-		wiki: null
+		char: {}
 	}
 	
 	// создание экземпляра класса
 	marvelService = new MarvelService();
-	
-	// метод обращается к серверу, получает данные и записывает данные в стейт
+
+	// метод закгрузки перс-а; получает весь необходимый state из метода _transformCharacter()
+	onCharLoad = (char) => {
+		this.setState({char}); // по факту тут {char : char}
+	}
+
+	// метод обновления перс-а; обращается к серверу, получает данные и записывает данные в стейт
 	updateChar = () => {
 		// const id = 1009610; // id spider-man
 		// id случайного персонажа
 		const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
 		this.marvelService
-			.getCharacter(id)
-			.then(res => {
-				this.setState(res)
-			})
+			.getCharacter(id) // вызываем метод получения персонажа
+			.then(this.onCharLoad);
 	}
 
   render() {
 		// деструктуризация
-		const {name, description, thumbnail, homepage, wiki} = this.state;
+		const { char: {name, description, thumbnail, homepage, wiki} } = this.state;
 		
     return (
       <div className="randomchar">

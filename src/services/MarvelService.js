@@ -14,11 +14,10 @@ class MarvelService {
   };
 
 	// метод получения всех персонажей
-	// ! тут остановился
-  // getAllCharacters = async () => {
-  //   const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=1241&${this._apiKey}`);
-	// 	return res.data.results.map(this._transformCharacter);
-  // };
+  getAllCharacters = async () => {
+    const res = await this.getResource(`${this._apiBase}characters?limit=9&offset=1241&${this._apiKey}`);
+		return res.data.results.map(this._transformCharacter);
+  };
 
 	// метод получения персонажа по id статически 
   // getCharacter = () => {return this.getResource(`${this._apiBase}characters/1009610?${this._apiKey}`);
@@ -30,6 +29,7 @@ class MarvelService {
 		return this._transformCharacter(res.data.results[0]);
   };
 
+	// метод по трансормации персонажа
 	_transformCharacter = (char) => {
 		return {
 			name: char.name,
