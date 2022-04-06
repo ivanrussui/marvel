@@ -32,17 +32,42 @@ class RandomChar extends Component {
 			.then(this.onCharLoad);
 	}
 
+	// descriptionNone = (char) => {
+	// 	if (this.setState({char:description} === null) ) {
+	// 		char.description.innerHTML =  'Нет описания';
+	// 	}
+	// }
+
+	// console.log(this.setState({char}));
+	
+
+
   render() {
 		// деструктуризация
 		const { char: {name, description, thumbnail, homepage, wiki} } = this.state;
-		
+
+		// console.log({char})
+
+		// if (description.length > "8") {
+		// 	description.innerHTML = '...';
+		// }
+
+		const descriptionChar = description ? description : 'Для этого персонажа нет описания';
+
+		// descriptionChar.slice(4, -2);
+
+		// if (descriptionChar.length > 10) {
+		// 	return description.substring(0, 80);
+		// }
+
     return (
       <div className="randomchar">
         <div className="randomchar__block">
           <img src={thumbnail} alt="Random character" className="randomchar__img" />
           <div className="randomchar__info">
             <p className="randomchar__name">{name}</p>
-            <p className="randomchar__descr">{description}</p>
+            {/* <p className="randomchar__descr">{description}</p> */}
+            <p className="randomchar__descr">{descriptionChar}</p>
             <div className="randomchar__btns">
               <a href={homepage} className="button button__main">
                 <div className="inner">homepage</div>
