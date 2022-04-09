@@ -46,19 +46,7 @@ class RandomChar extends Component {
 		// деструктуризация
 		const { char: {name, description, thumbnail, homepage, wiki} } = this.state;
 
-		// console.log({char})
-
-		// if (description.length > "8") {
-		// 	description.innerHTML = '...';
-		// }
-
-		const descriptionChar = description ? description : 'Для этого персонажа нет описания';
-
-		// descriptionChar.slice(4, -2);
-
-		// if (descriptionChar.length > 10) {
-		// 	return description.substring(0, 80);
-		// }
+		const descriptionChar = description ? description.slice(0, 200) +  '...' : 'Для этого персонажа нет описания';
 
     return (
       <div className="randomchar">
