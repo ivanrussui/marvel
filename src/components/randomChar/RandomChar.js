@@ -46,7 +46,7 @@ class RandomChar extends Component {
 		// деструктуризация
 		const { char: {name, description, thumbnail, homepage, wiki} } = this.state;
 
-		const descriptionChar = description ? description.slice(0, 200) +  '...' : 'Для этого персонажа нет описания';
+		// const descriptionChar = description ? description.slice(0, 200) +  '...' : 'There is no description for this character';
 
     return (
       <div className="randomchar">
@@ -54,8 +54,8 @@ class RandomChar extends Component {
           <img src={thumbnail} alt="Random character" className="randomchar__img" />
           <div className="randomchar__info">
             <p className="randomchar__name">{name}</p>
-            {/* <p className="randomchar__descr">{description}</p> */}
-            <p className="randomchar__descr">{descriptionChar}</p>
+            <p className="randomchar__descr">{description}</p>
+            {/* <p className="randomchar__descr">{descriptionChar}</p> */}
             <div className="randomchar__btns">
               <a href={homepage} className="button button__main">
                 <div className="inner">homepage</div>
